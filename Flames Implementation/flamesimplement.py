@@ -2,9 +2,8 @@ import Tkinter as tk
 from Tkinter import *
 from collections import Counter, OrderedDict
 import copy
-from PIL import Image, ImageTk
+# from PIL import Image, ImageTk
 
-# master = Tk()
 root = tk.Tk()
 s = tk.IntVar()
 
