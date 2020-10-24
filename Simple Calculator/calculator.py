@@ -1,5 +1,5 @@
-import Tkinter as tk
-from Tkinter import *
+import tkinter as tk
+from tkinter import *
 from math import sin, cos, tan
 
 
@@ -21,7 +21,7 @@ def operations(name):
         v.set(oper[name])
 
     except:
-        print "Invalid Operation"
+        pass
 
 
 root = tk.Tk()
@@ -32,7 +32,7 @@ hs = root.winfo_screenheight()
 x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
-root.iconbitmap('calc.ico')
+root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Simple Calculator\calc.ico')
 root.title("Calculator")
 root.resizable(0, 0)
 c = 0
