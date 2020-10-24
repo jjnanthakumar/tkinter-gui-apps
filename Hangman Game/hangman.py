@@ -1,12 +1,25 @@
 import random
 import requests
 import json
-import Tkinter as tk
-from Tkinter import *
-import tkMessageBox
+import tkinter as tk
+from tkinter import *
+from _tkinter import TclError
+from tkinter import messagebox
+
+WELCOME_MSG = '''Welcome to this event.
+
+Your attendance has been registered.
+
+Don't forget your free lunch.'''
+WELCOME_DURATION = 2000
 
 
-# root.configure(bg='white')
+def welcome():
+    top = Toplevel()
+    top.title('Welcome')
+    Message(top, text=WELCOME_MSG, padx=20, pady=20).pack()
+    top.after(WELCOME_DURATION, top.destroy)
+
 
 def randomword(name, serviceurl='https://api.datamuse.com/words?'):
     char = random.choice(list(name))
@@ -44,35 +57,35 @@ def check_words(find, hidden_word, hashed, hashed_text, tk_turns, tk_guess, name
     tk_turns.set("Remaining Turns : {}".format(10 - turns))
     tk_guess.set("Already Guessed : {}".format(guessed))
     if '_' not in hashed:
-        v = tkMessageBox.askyesno(title="Hangman Result",
-                                  message="Congragulations {}! You won\nWant to play again?".format(name.capitalize()))
+        v = messagebox.askyesno(title="Hangman Result",
+                                message="Congragulations {}! You won\nWant to play again?".format(name.capitalize()))
         if v:
             turns = 0
             guessed = ''
             root1.destroy()
             hangmangame()
         else:
-            tkMessageBox.showinfo(title="Greeting", message="Thanks for playing {} :)".format(name.capitalize()))
+            messagebox.showinfo(title="Greeting", message="Thanks for playing {} :)".format(name.capitalize()))
             root1.destroy()
     if 10 - turns == 0:
-        f = tkMessageBox.askretrycancel(title="Hangman Result",
-                                        message="Better Luck Next time {}, You Lose :(\n The word is {}".format(
-                                            name.capitalize(), hidden_word))
+        f = messagebox.askretrycancel(title="Hangman Result",
+                                      message="Better Luck Next time {}, You Lose :(\n The word is {}".format(
+                                          name.capitalize(), hidden_word))
         if f:
             turns = 0
             guessed = ''
             root1.destroy()
             hangmangame()
         else:
-            tkMessageBox.showinfo(title="Greeting", message="Thanks for playing {} :)".format(name.capitalize()))
+            messagebox.showinfo(title="Greeting", message="Thanks for playing {} :)".format(name.capitalize()))
             root1.destroy()
 
 
 def start(root, v1):
     name = v1.get()
     if not name.isalpha():
-        tkMessageBox.showerror(title="Error",
-                               message="Name must be a set of characters :(")
+        messagebox.showerror(title="Error",
+                             message="Name must be a set of characters :(")
         return
     root.destroy()
     root1 = Tk()
@@ -83,7 +96,8 @@ def start(root, v1):
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     root1.geometry('+%d+%d' % (x, y))
-    root1.iconbitmap('hang.ico')
+    root1.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Hangman Game\hang.ico')
+
     root1.title("Hangman")
     root1.resizable(0, 0)
     txt = "Hello {}, Welcome to Hangman Game!!".format(name.capitalize())
@@ -132,8 +146,12 @@ def start(root, v1):
                                                                                                             columnspan=30,
                                                                                                             sticky=W)
 
-    # root1.mainloop()
 
+# def doSomethingOnExit(root):
+#     if tkMessageBox.askokcancel("Quit", "Do you want to quit?"):
+#         root.withdraw()
+#     else:
+#         hangmangame()
 
 def hangmangame():
     root = tk.Tk()
@@ -144,7 +162,7 @@ def hangmangame():
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     root.geometry('+%d+%d' % (x, y))
-    root.iconbitmap('hang.ico')
+    root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Hangman Game\hang.ico')
     root.title("Hangman Game")
     root.resizable(0, 0)
     v1 = StringVar()
@@ -154,7 +172,7 @@ def hangmangame():
                                                                               padx=10,
                                                                               columnspan=10)
 
-    Button(root, text='start', fg='green', bg='blue', height=1, width=3,
+    Button(root, text='start', fg='white', bg='blue', height=1, width=3,
            command=lambda: start(root, v1)).grid(row=2, column=4, pady=10,
                                                  sticky=W)
 

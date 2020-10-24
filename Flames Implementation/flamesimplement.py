@@ -1,7 +1,10 @@
-import Tkinter as tk
-from Tkinter import *
+import tkinter as tk
+from tkinter import *
 from collections import Counter, OrderedDict
 import copy
+from tkinter import messagebox
+from _tkinter import TclError
+
 # from PIL import Image, ImageTk
 
 root = tk.Tk()
@@ -9,14 +12,6 @@ s = tk.IntVar()
 
 
 def count(n1, n2):
-    try:
-        if n1.isdigit() or n2.isdigit():
-            raise ValueError
-    except ValueError:
-        return "Oops! Your Input Must be string.. Try again!!"
-    except AttributeError:
-        pass
-
     if '.' in n1 or '.' in n2:
         name1 = n1.split('.')
         name2 = n2.split('.')
@@ -25,8 +20,7 @@ def count(n1, n2):
         name2 = n2.split()
     name1 = [i for i in name1 if len(i) > 1]
     name2 = [i for i in name2 if len(i) > 1]
-    if len(name1) < 1 or len(name2) < 1:
-        sys.exit("Please provide Valid names")
+
     n1 = ''.join(name1)
     n2 = ''.join(name2)
     n1 = n1.lower()
@@ -58,9 +52,9 @@ def flames():
     name1 = str(v1.get())
     name2 = str(v2.get())
     # print name2, name1
-    if name1 == '' or name2 == '':
-        res.set("Wrong Input!")
-        raise EXCEPTION('Wrong names :(')
+    if name1 == '' or name2 == '' or not name1.isalpha() or len(name1) < 1 or len(name2) < 1 or not name2.isalpha():
+        messagebox.showerror("Error", message="Invalid Names :(")
+        return
     n1 = name1
     n2 = name2
 
@@ -79,7 +73,7 @@ def flames():
 
 
 def clear():
-    res.set('')
+    res.set('Final Result')
     v2.set('')
     v1.set('')
 
@@ -95,10 +89,8 @@ x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
 root.title("Flames Game")
-# root.geometry("1111x675+300+300")
-root.iconbitmap('hearts.ico')
-# background_label = Label(root, image=filename)
-# background_label.place(x=0, y=0, relwidth=1, relheight=1)
+root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Flames Implementation\hearts.ico')
+
 root.configure(bg='pink')
 # C.pack()
 Label(root, text="Enter Your Name: ", justify=tk.LEFT, padx=10).grid(row=1, column=0, sticky=W)
