@@ -162,7 +162,7 @@ def hangmangame():
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     root.geometry('+%d+%d' % (x, y))
-    root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Hangman Game\hang.ico')
+    root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Hangman Game\hang.ico')
     root.title("Hangman Game")
     root.resizable(0, 0)
     v1 = StringVar()

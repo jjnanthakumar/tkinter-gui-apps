@@ -32,7 +32,7 @@ hs = root.winfo_screenheight()
 x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
-root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Simple Calculator\calc.ico')
+root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Simple Calculator\calc.ico')
 root.title("Calculator")
 root.resizable(0, 0)
 c = 0
