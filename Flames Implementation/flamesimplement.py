@@ -3,9 +3,6 @@ from tkinter import *
 from collections import Counter, OrderedDict
 import copy
 from tkinter import messagebox
-from _tkinter import TclError
-
-# from PIL import Image, ImageTk
 
 root = tk.Tk()
 s = tk.IntVar()
@@ -69,7 +66,7 @@ def flames():
         if r - 1 > 0:
             lst = lst[r - 1:] + lst[:r - 1]
 
-    res.set("The Relation is {}".format(dic.get(''.join(lst), "Sorry")))
+    messagebox.showinfo("Predicted Relation", "The Relation is {}".format(dic.get(''.join(lst), "Sorry")))
 
 
 def clear():
@@ -102,9 +99,6 @@ Entry(root, textvariable=v2, fg='red', width=30, justify=tk.CENTER).grid(row=2, 
 v1.set('')
 v2.set('')
 # l1 = tk.Label(root, text="""choose test:""")
-res.set("Final Result")
-Entry(root, textvariable=res, fg='red', bg='yellow', width=30, justify=tk.CENTER).grid(row=3, column=1, sticky=W,
-                                                                                       pady=2, padx=10, columnspan=10)
 Button(root, text='Check Relation', fg='blue', bg='white', command=lambda: flames()).grid(row=4, column=1, sticky=W,
                                                                                           pady=10, padx=5)
 Button(root, text='Play Again', fg='blue', bg='white', command=lambda: clear()).grid(row=4, column=2, sticky=W, pady=2)
