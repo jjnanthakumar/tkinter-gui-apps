@@ -89,7 +89,7 @@ x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
 root.title("Flames Game")
-root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Flames Implementation\hearts.ico')
+root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Flames Implementation\hearts.ico')
 
 root.configure(bg='pink')
 # C.pack()

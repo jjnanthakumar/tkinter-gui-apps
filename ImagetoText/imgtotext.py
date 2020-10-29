@@ -30,9 +30,11 @@ def savetext(data, root1):
 def saveauto(data):
     data = data.split('\n')
     pyautogui.press('winleft')
+    time.sleep(1)
     pyautogui.typewrite('notepad')
+    time.sleep(2)
     pyautogui.press('enter')
-    time.sleep(4)
+    time.sleep(3)
     # print(pyautogui.position())
     # 645,166
 

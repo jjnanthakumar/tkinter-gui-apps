@@ -3,22 +3,10 @@ import requests
 import json
 import tkinter as tk
 from tkinter import *
-from _tkinter import TclError
 from tkinter import messagebox
 
-WELCOME_MSG = '''Welcome to this event.
-
-Your attendance has been registered.
-
-Don't forget your free lunch.'''
-WELCOME_DURATION = 2000
 
 
-def welcome():
-    top = Toplevel()
-    top.title('Welcome')
-    Message(top, text=WELCOME_MSG, padx=20, pady=20).pack()
-    top.after(WELCOME_DURATION, top.destroy)
 
 
 def randomword(name, serviceurl='https://api.datamuse.com/words?'):
@@ -96,7 +84,7 @@ def start(root, v1):
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     root1.geometry('+%d+%d' % (x, y))
-    root1.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter-python-2.7\Hangman Game\hang.ico')
+    root1.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Hangman Game\hang.ico')
 
     root1.title("Hangman")
     root1.resizable(0, 0)
