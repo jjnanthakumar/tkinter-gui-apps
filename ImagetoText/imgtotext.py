@@ -30,11 +30,11 @@ def savetext(data, root1):
 def saveauto(data):
     data = data.split('\n')
     pyautogui.press('winleft')
-    time.sleep(1)
-    pyautogui.typewrite('notepad')
     time.sleep(2)
-    pyautogui.press('enter')
+    pyautogui.typewrite('notepad')
     time.sleep(3)
+    pyautogui.press('enter')
+    time.sleep(4)
     # print(pyautogui.position())
     # 645,166
 
@@ -48,11 +48,15 @@ def saveauto(data):
     # print(data)
 
 
+
+
+
+
 def imgtotext(path):
     data = pytesseract.image_to_string(path)
     import re
-    if not bool(re.match(r'[0-9a-zA-Z]+',data)):
-        messagebox.showerror("Conversion Error","No Text Found")
+    if len(re.findall(r'[0-9a-zA-Z]+', data)) < 1:
+        messagebox.showerror("Conversion Error", "No Text Found")
         return
     root1 = Tk()
     root1.title("Converted Text")
