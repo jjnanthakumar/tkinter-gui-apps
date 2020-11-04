@@ -1,12 +1,11 @@
+import numpy as np
+import cv2 as cv
 import random
 import requests
 import json
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
-
-
-
 
 
 def randomword(name, serviceurl='https://api.datamuse.com/words?'):
@@ -84,7 +83,7 @@ def start(root, v1):
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     root1.geometry('+%d+%d' % (x, y))
-    root1.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Hangman Game\hang.ico')
+    root1.iconbitmap(os.path.abspath('hang.ico'))
 
     root1.title("Hangman")
     root1.resizable(0, 0)
@@ -140,6 +139,8 @@ def start(root, v1):
 #         root.withdraw()
 #     else:
 #         hangmangame()
+import os
+
 
 def hangmangame():
     root = tk.Tk()
@@ -150,7 +151,7 @@ def hangmangame():
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     root.geometry('+%d+%d' % (x, y))
-    root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Hangman Game\hang.ico')
+    root.iconbitmap(os.path.abspath('hang.ico'))
     root.title("Hangman Game")
     root.resizable(0, 0)
     v1 = StringVar()

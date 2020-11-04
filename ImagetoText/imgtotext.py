@@ -8,7 +8,6 @@ import time
 import random, os
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-from pywinauto import Application
 
 
 # app = Application(backend="win32").start('notepad.exe')
@@ -48,10 +47,6 @@ def saveauto(data):
     # print(data)
 
 
-
-
-
-
 def imgtotext(path):
     data = pytesseract.image_to_string(path)
     import re
@@ -60,7 +55,7 @@ def imgtotext(path):
         return
     root1 = Tk()
     root1.title("Converted Text")
-    root1.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\ImagetoText\favicon.ico')
+    root1.iconbitmap(os.path.abspath('conve.ico'))
     Label(root1, text=data, font=('arial', 10, 'bold'), bd=6, justify=tk.CENTER).grid(row=2, column=0, pady=10,
                                                                                       columnspan=10,
                                                                                       sticky=N)
@@ -93,6 +88,8 @@ def browse():
                   sticky=N)
 
 
+import os
+
 but1 = ""
 root = tk.Tk()
 v1 = StringVar()
@@ -103,7 +100,7 @@ hs = root.winfo_screenheight()
 x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
-root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\ImagetoText\conve.ico')
+root.iconbitmap(os.path.abspath('conve.ico'))
 root.title("Conversion")
 root.resizable(0, 0)
 

@@ -1,5 +1,5 @@
 import cv2 as cv
-import numpy as np
+import os
 
 __author__ = "jjnanthakumar477@gmail.com"
 
@@ -7,7 +7,7 @@ __author__ = "jjnanthakumar477@gmail.com"
 class Detections:
     ''' Image must be a matrix with pixels and it should not be empty'''
 
-    def __init__(self, img, xmlpath=r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\FaceDetect\haarcascades\cascade_fontfaces_trained.xml', minneighbours=4):
+    def __init__(self, img, xmlpath=os.path.abspath('cascade_fontfaces_trained.xml'), minneighbours=4):
         self.img = img
         self.grey = cv.cvtColor(code=cv.COLOR_BGR2GRAY, src=img)
         self.neigh = minneighbours
@@ -26,7 +26,8 @@ class Detections:
 
         face_cascade = cv.CascadeClassifier(self.xml)
         faces = face_cascade.detectMultiScale(self.grey, scaleFactor=scale, minNeighbors=self.neigh)
-        eye_cascade = cv.CascadeClassifier(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\FaceDetect\haarcascades\haarcascade_eye_tree_eyeglasses.xml')
+        eye_cascade = cv.CascadeClassifier(
+            os.path.abspath('haarcascade_eye_tree_eyeglasses.xml'))
         for x, y, w, h in faces:
             roi_gray = self.grey[y:y + h, x:x + w]
             roi_color = self.img[y:y + h, x:x + w]
@@ -50,6 +51,7 @@ class Detections:
         if k == 27:
             cv.destroyAllWindows()
             cap.release()
+
     def print(self):
         print(self.xml)
         print(self.img)

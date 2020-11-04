@@ -7,6 +7,8 @@ from tkinter import messagebox
 root = tk.Tk()
 s = tk.IntVar()
 
+__author__ = "jjnanthakumar477@gmail.com"
+
 
 def count(n1, n2):
     if '.' in n1 or '.' in n2:
@@ -75,6 +77,8 @@ def clear():
     v1.set('')
 
 
+import os
+
 v1 = StringVar()
 v2 = StringVar()
 res = StringVar()
@@ -86,10 +90,9 @@ x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
 root.title("Flames Game")
-root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\Flames Implementation\hearts.ico')
+root.iconbitmap(os.path.abspath('hearts.ico'))
 
 root.configure(bg='pink')
-# C.pack()
 Label(root, text="Enter Your Name: ", justify=tk.LEFT, padx=10).grid(row=1, column=0, sticky=W)
 Label(root, text="Enter Another Name: ", justify=tk.LEFT, padx=10).grid(row=2, column=0, sticky=W)
 Entry(root, textvariable=v1, fg='red', width=30, justify=tk.CENTER).grid(row=1, column=1, sticky=W, pady=2, padx=10,
@@ -98,9 +101,7 @@ Entry(root, textvariable=v2, fg='red', width=30, justify=tk.CENTER).grid(row=2, 
                                                                          columnspan=10)
 v1.set('')
 v2.set('')
-# l1 = tk.Label(root, text="""choose test:""")
 Button(root, text='Check Relation', fg='blue', bg='white', command=lambda: flames()).grid(row=4, column=1, sticky=W,
                                                                                           pady=10, padx=5)
 Button(root, text='Play Again', fg='blue', bg='white', command=lambda: clear()).grid(row=4, column=2, sticky=W, pady=2)
-# Button(root, text="Create").pack()
 root.mainloop()

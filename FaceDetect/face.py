@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import os
 import numpy as np
 from tkinter import messagebox
 from tkinter import filedialog
@@ -37,16 +38,14 @@ def detect(path, choice):
     # canvas = Canvas(root1, width=w, height=h)
 
     root1.title("Detected Image")
-    root1.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\FaceDetect\image.ico')
-    root1.resizable(0,0)
+    root1.iconbitmap(os.path.abspath('image.ico'))
+    root1.resizable(0, 0)
     path = path.split('/')[-1]
     cv.imwrite(path, img)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     img = ImageTk.PhotoImage(Image.fromarray(img))
     panel = tk.Label(root1, image=img)
     panel.pack(side="top", fill="both", expand="yes")
-    # canvas.create_image(0, 0, anchor=NW, image=img)
-    # canvas.pack(side="top", fill="both", expand="yes")
     root1.mainloop()
 
 
@@ -64,8 +63,6 @@ def camera():
         f.drawRectFace()
         f.drawCircleeyes(scale=1.2, color=(0, 255, 0))
         f.showVideoFrame(cap)
-
-        # cv.imshow('Live',frame)
 
 
 def browse():
@@ -100,7 +97,7 @@ hs = root.winfo_screenheight()
 x = (ws / 2) - (w / 2)
 y = (hs / 2) - (h / 2)
 root.geometry('+%d+%d' % (x, y))
-root.iconbitmap(r'C:\Users\Nanthakumar J J\Desktop\projects\Tkinter GUI\FaceDetect\faceico.ico')
+root.iconbitmap(os.path.abspath('faceico.ico'))
 root.title("Face Detection")
 root.resizable(0, 0)
 
@@ -114,5 +111,3 @@ Button(root, text='Live Detection', fg='white', bg='green', height=1, width=20,
        command=lambda: camera()).grid(row=10, column=1, pady=10, padx=70, columnspan=30,
                                       sticky=NW)
 root.mainloop()
-# pyinstaller -F --hidden-import=pkg_resources.py2_warn --icon=faceico.ico face.py
-# C:\Users\Nanthakumar J J\AppData\Roaming\Python\Python38\site-packages
