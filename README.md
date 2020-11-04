@@ -7,5 +7,5 @@ For python 3.x refer this documentation https://docs.python.org/3/library/tkinte
 3) Here I have uploaded .exe files for Hangman and Flames, for that I have converted python2.x code to python 3.x.
    (because python2 no longer supported for pyinstaller)
 4) I have uploaded all codes in a python 3.x version.
-*Icon files must be downloaded if you are gonna choose .exe file
+#Icon files must be downloaded if you are gonna choose .exe file
                  
