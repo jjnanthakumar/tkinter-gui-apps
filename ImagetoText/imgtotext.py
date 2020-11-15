@@ -10,9 +10,6 @@ import random, os
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
-# app = Application(backend="win32").start('notepad.exe')
-# # app.UntitledNotepad.minimize()
-# app.UntitledNotepad.Edit.set_text('some text\nsecond line')
 def savetext(data, root1):
     data = data.split('\n')
     fname = f'convertedfile{random.randint(1, 1000)}.txt'
@@ -28,7 +25,7 @@ def savetext(data, root1):
 
 def saveauto(data):
     data = data.split('\n')
-    pyautogui.press('winleft')
+    pyautogui.hotkey('win', 'r')
     time.sleep(2)
     pyautogui.typewrite('notepad')
     time.sleep(3)
