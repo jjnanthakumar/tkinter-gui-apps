@@ -85,7 +85,6 @@ def browse():
                   sticky=N)
 
 
-import os
 
 but1 = ""
 root = tk.Tk()

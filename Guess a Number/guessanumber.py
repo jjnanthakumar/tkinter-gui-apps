@@ -2,6 +2,7 @@ import random
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+import os
 
 turns = 0
 guessed = []
@@ -75,9 +76,9 @@ def start(root, v1):
     root1.resizable(0, 0)
     txt = "Hello {}, Welcome to Guess a Number Game :)".format(name.capitalize())
     Label(root1, text=txt, font=('arial', 10, 'bold'), justify=tk.CENTER, padx=10, fg="blue").grid(row=1, column=0,
-                                                                                                  columnspan=30,
-                                                                                                  sticky=W, pady=10,
-                                                                                                  padx=10)
+                                                                                                   columnspan=30,
+                                                                                                   sticky=W, pady=10,
+                                                                                                   padx=10)
     Label(root1, text="Guess a number between 1 to 20 :)", justify=tk.CENTER, padx=10, fg="green").grid(row=2, column=1,
                                                                                                         columnspan=30,
                                                                                                         pady=10,
@@ -111,14 +112,6 @@ def start(root, v1):
                                                                                                             column=1,
                                                                                                             columnspan=30,
                                                                                                             sticky=W)
-
-
-# def doSomethingOnExit(root):
-#     if tkMessageBox.askokcancel("Quit", "Do you want to quit?"):
-#         root.withdraw()
-#     else:
-#         hangmangame()
-import os
 
 
 def guess():
